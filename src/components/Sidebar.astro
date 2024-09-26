@@ -1,0 +1,74 @@
+---
+const sections = [
+  {
+    title: "MF0486_3",
+    units: ["UD1", "UD2", "UD3", "UD4", "UD5", "UD6", "UD7", "UD8", "UD9"]
+  },
+  {
+    title: "MF0487_3",
+    units: ["UD1", "UD2", "UD3", "UD4", "UD5", "UD6"]
+  },
+  {
+    title: "MF0488_3",
+    units: ["UD1", "UD2", "UD3", "UD4", "UD5", "UD6"]
+  },
+  {
+    title: "MF0489_3",
+    units: ["UD1", "UD2", "UD3"]
+  },
+  {
+    title: "MF0490_3",
+    units: ["UD1", "UD2", "UD3", "UD4", "UD5", "UD6", "UD7"]
+  }
+];
+---
+
+<aside class="sidebar">
+  <ul>
+    {sections.map((section) => (
+      <li>
+        <details>
+          <summary>{section.title}</summary>
+          <ul>
+            {section.units.map((unit) => (
+              <li>
+                <a href={`/docs/${section.title}/${unit}/`}>{unit}</a>
+              </li>
+            ))}
+          </ul>
+        </details>
+      </li>
+    ))}
+  </ul>
+</aside>
+
+<style>
+  .sidebar {
+    width: 250px;
+    background-color: #f8f9fa;
+    padding: 1rem;
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .sidebar li {
+    margin-bottom: 1rem;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    color: #007bff;
+  }
+
+  .sidebar details summary {
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .sidebar details[open] summary {
+    color: #0056b3;
+  }
+</style>
